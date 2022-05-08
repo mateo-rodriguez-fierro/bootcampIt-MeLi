@@ -5,7 +5,23 @@ PUNTO 1
 utiliza addingIdToProduct para agregarle un id único a cada producto empezando en 1
 *************************************************************************************/
 // Tu código acá
-let addingIdToProduct;
+
+function addingIdToProduct(){
+/* 	let addingIdToProduct=[];
+ */
+	
+	products.forEach((item, i)=>{
+		
+		item.id=i+1
+	/* 	addingIdToProduct.push(products[i].id) */
+ 
+	})
+/* 	console.log(products)
+	console.log(addingIdToProduct)
+ */	
+	return products
+	
+}
 
 
 
@@ -16,7 +32,17 @@ let addingIdToProduct;
  * utiliza returningTheNames para retornar el nombre de cada uno de los productos
  ******************************************************************************/
 // Tu código acá
-let returningTheNames;
+function returningTheNames(){
+	let returningTheNames=[]
+	for (props in products)
+	{
+		console.log(products[props].name)
+		returningTheNames.push(products[props].name)
+	}
+
+	return returningTheNames.length
+
+}
 
 
 
@@ -28,7 +54,23 @@ utiliza searchID para retornar el producto cuyo id corresponda al parametro pasa
 Si ejecuto searchID(3) debería devolver el objeto entero, cuyo id sea 3
 ************************************************************************************/
 // Tu código acá
-let searchID;
+function searchID(idCheck){
+	//console.log(idCheck)
+	for (props in products)
+	{
+		if (idCheck=== products[props].id)
+		{
+			//console.log(products[idCheck])
+			return products[idCheck-1]
+		}
+		if (idCheck>products.length)
+		{
+			return 'no hubo coincidencias'
+		}
+	}
+
+
+}
 
 
 
@@ -39,7 +81,10 @@ utiliza matchingColors para retornar los productos que hagan match con
 el color pasado por parámetro
 ******************************************************************************/
 // Tu código acá
-let matchingColors;
+
+function matchingColors(colorMatch){
+	//console.log(colorMatch)
+}
 
 
 
@@ -48,7 +93,11 @@ PUNTO 5
 utiliza colorsLength para retornar los productos que no tengan color
 ******************************************************************************/
 // Tu código acá
-let colorsLength;
+
+function colorsLength()
+{
+
+}
 
 
 
@@ -59,7 +108,18 @@ propiedades (name,price,quantity,colors).
 Retornar los productos donde se incluya el producto agregado
 ******************************************************************************/
 // Tu código acá
-let addProduct;
+function addProduct(addProducts){
+	//console.log(addProducts)
+
+	if (addProducts.name==null || addProducts.colors==null || addProducts.quantity==null || addProducts.price==null )
+	{
+		return 
+	}
+	else{
+		products.push(addProducts)
+
+	}
+}
 
 
 
@@ -69,7 +129,24 @@ PUNTO 7
 utiliza deleteProduct para Eliminar del array de productos a aquellos sin stock (con quantity 0)
 ******************************************************************************/
 // Tu código acá
-let deleteProduct;
+function deleteProduct(){
+/* 	console.log(products[props])
+	console.log(products[props].quantity)
+ */	
+	console.log('antes',products)
+	for (props in products)
+	{
+		//let quantity=products[props].quantity;
+		let index =products.findIndex(product =>product.quantity ===0)
+		console.log('index; ',index)
+		if (products[props].quantity==0)
+		{
+			products.splice(index,1)
+		}
+		
+	}
+	console.log('despues',products[props])
+}
 
 
 
@@ -80,7 +157,16 @@ utiliza existingProducts para sumar el numero total de stock entre todos los pro
 Debe retornar dicho numero
 ******************************************************************************/
 // Tu código acá
-let existingProducts;
+function existingProducts(){
+	let sumOfStock=0;
+	for (props in products)
+	{
+		//console.log(products[props].quantity)
+		sumOfStock +=products[props].quantity
+		console.log(sumOfStock)
+	}
+	return sumOfStock
+}
 
 
 
@@ -94,8 +180,17 @@ showHigherPrice(products,500)
 debería devolver 2 objetos, ya que solo 2 productos tienen un valor mayor a 500
 ******************************************************************************/
 // Tu código acá
-let showHigherPrice;
+function showHigherPrice(){
+	let savePrice=[]
+	for (props in products)
+	{
+		savePrice.push(products[props].price)
+	}
+	savePrice.sort(function(a, b){return a - b})
+	console.log(Math.max(...savePrice))
+	return Math.max(...savePrice)
 
+}
 
 
 

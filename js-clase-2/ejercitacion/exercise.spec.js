@@ -53,7 +53,7 @@ xdescribe("PUNTO NÚMERO 2", () => {
 	});
 });
 
-xdescribe("PUNTO NÚMERO 3", () => {
+describe("PUNTO NÚMERO 3", () => {
 	it("searchID debe ser una función ", () => {
 		expect(typeof searchID).toBe("function");
 	});
@@ -70,7 +70,7 @@ xdescribe("PUNTO NÚMERO 3", () => {
 	});
 });
 
-xdescribe("PUNTO NÚMERO 4", () => {
+describe("PUNTO NÚMERO 4", () => {
 	it("matchingColors debe ser una función", () => {
 		expect(typeof matchingColors).toBe("function");
 	});
@@ -79,7 +79,7 @@ xdescribe("PUNTO NÚMERO 4", () => {
 		expect(matchingColors("pink")).toEqual(products_with_color_pink);
 	});
 });
-xdescribe("PUNTO NÚMERO 5", () => {
+describe("PUNTO NÚMERO 5", () => {
 	it("colorsLength debe ser una función", () => {
 		expect(typeof colorsLength).toBe("function");
 	});
@@ -88,7 +88,7 @@ xdescribe("PUNTO NÚMERO 5", () => {
 	});
 });
 
-xdescribe("PUNTO NÚMERO 6", () => {
+describe("PUNTO NÚMERO 6", () => {
 	it("addProduct debe ser una función", () => {
 		expect(typeof addProduct).toBe("function");
 	});
@@ -152,7 +152,7 @@ xdescribe("PUNTO NÚMERO 8", () => {
 		expect(existingProducts(quantityProduct2)).toBe(450);
 	});
 });
-xdescribe("PUNTO 9", () => {
+describe("PUNTO 9", () => {
 	it("showHigherPrice debe ser una función", () => {
 		expect(typeof showHigherPrice).toBe("function");
 	});
