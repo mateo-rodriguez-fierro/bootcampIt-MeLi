@@ -7,7 +7,7 @@ const api = supertest(app);
 
 let response;
 beforeEach(async () => {
-	response = await api.get("/api");
+	response = await api.get("/");
 });
 afterAll(() => {
 	responseServer.close();
@@ -19,12 +19,12 @@ describe("PRIMER GET", () => {
 	});
 
 	it("Debe mostrar el mensaje '¡Hola mundo!' en el navegador", async () => {
-		const response = await api.get("/api");
+		const response = await api.get("/");
 		expect(response.text).toBe("¡Hola mundo!");
 	});
 });
 
-xdescribe("EXTRA", () => {
+describe("EXTRA", () => {
 	it("Debe crear un array de 3 productos y guardarlo en una variable llamada 'products'", async () => {
 		expect(products.length).toBe(3);
 	});
@@ -35,12 +35,12 @@ xdescribe("EXTRA", () => {
 	});
 
 	it("Debe crear otro método GET a '/products'", async () => {
-		let response = await api.get("/api/products");
+		let response = await api.get("/products");
 		expect(response.req.method).toBe("GET");
 		expect(response.res.statusCode).toBe(200);
 	});
 	it("Debe devolver el array de productos creado cuando estémos en la ruta '/products' ", async () => {
-		let response = await api.get("/api/products");
+		let response = await api.get("/products");
 		expect(response.body.products.length).toBe(products.length);
 	});
 });

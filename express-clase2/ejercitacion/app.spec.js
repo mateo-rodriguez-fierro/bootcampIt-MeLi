@@ -1,6 +1,6 @@
 const supertest = require("supertest");
 let searchingLengthProperty = require("../ejercitacion/utils/utils");
-let { products } = require("../ejercitacion/routes/Get");
+let { products } = require("../ejercitacion/routes/products");
 const { app, responseServer } = require("./app");
 
 const api = supertest(app);

@@ -26,7 +26,7 @@ describe("PUNTO 1", () => {
 		expect(responseGetProducts.body.length).toBe(mockBackUp.length);
 	});
 });
-xdescribe("PUNTO 2", () => {
+describe("PUNTO 2", () => {
 	it("Debe ser un método GET a '/api/products/:id'",  () => {
 		expect(productID.req.method).toBe("GET");
 		expect(productID.res.statusCode).toBe(200);

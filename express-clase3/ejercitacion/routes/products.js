@@ -13,7 +13,9 @@ const router = express.Router();
 // Tu código acá
 
 
-
+router.get("/products",(req,res)=>{
+	res.json(products)
+})
 
 
 
@@ -25,6 +27,22 @@ const router = express.Router();
 *******************************************************************/
 // Tu código acá
 
+router.get("/products/:id",(req,res)=>{
+	for (let i=0; i<products.length; i++)
+	{
+		let idCheck=req.params.id
+		if (idCheck== products[i].id)
+		{
+			console.log(products[i])
+			res.json(products[idCheck-1]	)
+		}
+		if (idCheck>products.length)
+		{
+			res.status(404).send('error 404 page not found')
+		}
+	}
+
+})
 
 
 
@@ -36,6 +54,17 @@ const router = express.Router();
 	- Agregar un nuevo producto “/api/products”
  ***********************************************************************/
 // Tu código acá
+router.post('/products',(req,res)=>{
+
+	if (addProducts.name==null || addProducts.colors==null || addProducts.quantity==null || addProducts.price==null )
+	{
+		return 
+	}
+	else{
+		products.push(addProducts)
+	
+	}
+})
 
 
 

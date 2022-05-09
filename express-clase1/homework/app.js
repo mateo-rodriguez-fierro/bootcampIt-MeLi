@@ -6,12 +6,13 @@ const PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/api", router);
-
+app.use("/", router);
+//app.use("/", router);
 let responseServer = app.listen(
 	PORT,
 	console.log(`Listening on http://localhost:${PORT}`)
 );
+
 
 module.exports = {
 	app,

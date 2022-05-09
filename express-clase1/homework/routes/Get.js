@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 
@@ -10,7 +11,9 @@ const router = express.Router();
 // Tu código acá
 
 
-
+router.get('/', (req,res)=>{
+	res.send('¡Hola mundo!')
+})
 
 
 /*************************************************************
@@ -20,7 +23,24 @@ const router = express.Router();
 	3-Responder con el array al ingresar a '/products'
  *************************************************************/
 // Tu código acá
-let products;
+let products=[{
+	name: 'Mouse',
+	id: 1,
+	price: 'Mouse Gamer con 10 teclas!',
+  }, 
+  {
+	name: 'Mouse',
+	id: 1,
+	price: 'Mouse Gamer con 10 teclas!',
+  }, 
+  {
+	name: 'Mouse',
+	id: 1,
+	price: 'Mouse Gamer con 10 teclas!',
+  }, ];
+router.get('/products',(req,res)=>{
+	res.send(products)
+})
 
 
 module.exports = { router, products };
