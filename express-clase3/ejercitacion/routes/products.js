@@ -55,15 +55,28 @@ router.get("/products/:id",(req,res)=>{
  ***********************************************************************/
 // Tu código acá
 router.post('/products',(req,res)=>{
+	let id =req.body.id
+	let setName= req.body.name
+	let setQuantity= req.body.quantity
+	let setColors=req.body.colors
+	let setPrice=req.body.price
+	//console.log(setName,setPrice,setQuantity,setColors)
 
-	if (addProducts.name==null || addProducts.colors==null || addProducts.quantity==null || addProducts.price==null )
-	{
-		return 
-	}
-	else{
-		products.push(addProducts)
+	products.push({
+		id:id,
+		name: setName,
+		price: setPrice,
+		quantity: setQuantity,
+		colors: [
+		`${setColors}`
+		]
+		/* name: "Macbook",
+		price: 1400,
+		quantity: 40,
+		colors: ["silver", "black", "white"], */
+	})
 	
-	}
+	res.send(products)
 })
 
 
@@ -79,7 +92,27 @@ router.post('/products',(req,res)=>{
 // Tu código acá
 
 
+router.put("/products/:id",(req,res)=>{
+	
+	let setName= req.body.name
+	let setQuantity= req.body.quantity
+	let setColors=req.body.colors
+	let setPrice=req.body.price
+	for (let i=0; i<products.length; i++)
+	{
 
+		let idCheck=req.params.id
+		if (idCheck== products[i].id)
+		{
+			
+		}
+		if (idCheck>products.length)
+		{
+			res.status(404).send('error 404 page not found')
+		}
+	}
+
+})
 
 
 
